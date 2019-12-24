@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="返回到主界面"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="跳转到下一题"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/analysis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="查看解析"
+                    android:textSize="15sp"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="题目描述:"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="mDescription"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/parameter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入参数：如果输入值是数组，请用#号分隔"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/calculate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="计算结果"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/set_test_case"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="设置默认测试用例"
+                    android:textSize="20sp" />
+                </LinearLayout>
+
+            <TextView
+                android:id="@+id/answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="mAnswer"
+                android:textSize="30sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
