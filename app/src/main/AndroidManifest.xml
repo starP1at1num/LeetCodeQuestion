@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BaseActivity"/>
+        <activity android:name=".LeetCodeQuestion.LeetCode1"/>
         <activity android:name=".QuestionAnalysisActivity"/>
     </application>
 

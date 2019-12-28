@@ -6,15 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.leetcodequestion.LeetCodeQuestion.LeetCode1;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private List<ButtonVO> buttonVOList = new ArrayList<ButtonVO>();
     private EditText searchEt;
-    private Button searchBtn;
+    private ImageView searchBtn;
     private HashMap<String, ButtonVO> tagMap = new HashMap<>();
     private ButtonListAdapter adapter;
 
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         if (actionbar != null) {
             actionbar.hide();
         }
-        searchBtn = (Button) findViewById(R.id.search_button);
+        searchBtn = (ImageView) findViewById(R.id.search_button);
         searchEt = (EditText) findViewById(R.id.search_edit_text);
         listView = (ListView) findViewById(R.id.main_list_view);
         initDataList();
@@ -61,25 +62,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initDataList() {
-        createButtonVO("题目一", "题目一的描述", "类型1#类型2", BaseActivity.class);
-        createButtonVO("题目二", "题目二的描述", "类型1", BaseActivity.class);
-        createButtonVO("题目三", "题目三的描述", "类型2", BaseActivity.class);
+        createButtonVO("1.两数之和", "数组#哈希表#简单", LeetCode1.class);
+        createButtonVO("2.两数相加", "数字#链表#中等", LeetCode1.class);
+        createButtonVO("3.无重复字符的最长子串", "哈希表#双指针#字符串#滑动窗口#中等", LeetCode1.class);
 
     }
 
     public class ButtonVO {
-        private final String buttonDescription;
         private final Class aClass;
         private final String buttonName;
+        private final String tag;
+        private boolean isExpend = false;
 
-        public ButtonVO(String buttonName, String buttonDescription, Class aClass) {
+        public ButtonVO(String buttonName, String tag, Class aClass) {
             this.aClass = aClass;
-            this.buttonDescription = buttonDescription;
             this.buttonName = buttonName;
-        }
-
-        public String getButtonDescription() {
-            return buttonDescription;
+            this.tag = tag;
         }
 
         public Class getaClass() {
@@ -88,6 +86,18 @@ public class MainActivity extends AppCompatActivity {
 
         public String getButtonName() {
             return buttonName;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public boolean isExpend() {
+            return isExpend;
+        }
+
+        public void setExpend(boolean expend) {
+            isExpend = expend;
         }
     }
 
@@ -107,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
             }
-            if(matched) {
+            if (matched) {
                 newList.add(tagMap.get(tagOfMap));
             }
         }
@@ -120,9 +130,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void createButtonVO(String buttonName, String buttonDescription, String tag, Class aClass) {
+    private void createButtonVO(String buttonName, String tag, Class aClass) {
         //把构造VO和添加map抽出一个方法来了
-        ButtonVO buttonVO = new ButtonVO(buttonName, buttonDescription, aClass);
+        ButtonVO buttonVO = new ButtonVO(buttonName, tag, aClass);
         buttonVOList.add(buttonVO);
         tagMap.put(tag, buttonVO);
     }

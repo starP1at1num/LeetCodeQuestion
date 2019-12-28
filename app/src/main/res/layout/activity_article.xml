@@ -21,12 +21,13 @@
             android:layout_height="wrap_content"
             android:hint="请输入题目的标签进行搜索(如果输入多个标签,请以#隔开)"
             android:layout_weight="4"/>
-        <Button
+        <ImageView
             android:id="@+id/search_button"
+            android:src="@drawable/search"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="搜索"/>
+            android:layout_gravity="center_vertical"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <ListView
